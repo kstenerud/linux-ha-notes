@@ -1,0 +1,18 @@
+#cloud-config
+
+bootcmd:
+  # https://github.com/CanonicalLtd/multipass/issues/666
+  - sudo ln -fs /run/systemd/resolve/resolv.conf /etc/resolv.conf
+  # Point the local hostname to its actual external address
+  - sed -i "s/127.0.1.1 {{fqdn}} {{hostname}}/$(ip addr | awk '/global/ {print $2}' | sed 's/\([^\/]*\)\/.*/\1/g') {{fqdn}} {{hostname}}/g" /etc/cloud/templates/hosts.debian.tmpl
+
+runcmd:
+  # Enable nginx_status page
+  - sed -i "s/^\tlocation \/ {/\tlocation \/nginx_status {stub_status on; access_log off; allow 127.0.0.1; deny all;}\n\tlocation \/ {/g" /etc/nginx/sites-available/default
+
+packages:
+  - pacemaker
+  - pcs
+  - corosync
+  - fence-agents
+  - nginx

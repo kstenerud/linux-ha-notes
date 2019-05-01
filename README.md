@@ -108,4 +108,4 @@ HA Technologies on Linux
 ------------------------
 
 * [Keepalived](keepalived.md)
-* [ClusterLabs](clusterlabs.md)
+* [Pacemaker](pacemaker.md)

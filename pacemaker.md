@@ -1,9 +1,9 @@
-ClusterLabs
-===========
+Pacemaker
+=========
 
 https://clusterlabs.org
 
-ClusterLabs provides service level high availability, supporting practically any redundancy configuration in modern use.
+Pacemaker provides service level high availability, supporting practically any redundancy configuration in modern use.
 
 
 ### Main Components
@@ -20,3 +20,8 @@ Note: `heartbeat` is the old messaging layer, now deprecated.
 * Node Fencing: STONITH services, calls resource agent scripts
 * Reporting
 
+
+Quickstart
+----------
+
+[Here](pacemaker-quickstart)

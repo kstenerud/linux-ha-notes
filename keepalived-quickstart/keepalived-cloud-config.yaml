@@ -1,0 +1,11 @@
+#cloud-config
+
+bootcmd:
+  # https://github.com/CanonicalLtd/multipass/issues/666
+  # DNS resolution workaround to be able to see sister nodes.
+  - sudo ln -fs /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+packages:
+  - keepalived
+  # An example service
+  - nginx
